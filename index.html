@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Which eSIM Do I Need?</title>
+  <meta name="description" content="A tiny travel tool that helps you choose an eSIM setup for your destination.">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f5f7fb;
+      color: #17191f;
+    }
+    main {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 56px 20px;
+    }
+    .card {
+      background: white;
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: 0 12px 45px rgba(0,0,0,.08);
+    }
+    h1 {
+      font-size: clamp(32px, 8vw, 54px);
+      line-height: .98;
+      margin: 0 0 16px;
+    }
+    .lead {
+      font-size: 18px;
+      line-height: 1.55;
+      color: #555b67;
+      margin-bottom: 28px;
+    }
+    label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    input {
+      width: 100%;
+      padding: 15px 16px;
+      border: 1px solid #d9dde6;
+      border-radius: 13px;
+      font: inherit;
+      font-size: 17px;
+    }
+    button, .cta {
+      display: inline-block;
+      width: 100%;
+      margin-top: 14px;
+      border: 0;
+      border-radius: 13px;
+      padding: 15px 18px;
+      font: inherit;
+      font-weight: 800;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    button {
+      background: #17191f;
+      color: white;
+    }
+    .cta {
+      background: #e9efff;
+      color: #17295c;
+    }
+    #result {
+      display: none;
+      margin-top: 25px;
+      padding-top: 22px;
+      border-top: 1px solid #eceef2;
+    }
+    .steps {
+      line-height: 1.65;
+      padding-left: 20px;
+    }
+    .small {
+      margin-top: 18px;
+      color: #767c88;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .badge {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 6px 10px;
+      background: #eef2f8;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+  </style>
+</head>
+
+<body>
+<main>
+  <div class="card">
+    <div class="badge">Free travel tool</div>
+
+    <h1>Which eSIM do I need?</h1>
+
+    <p class="lead">
+      Tell me where you're going. I'll give you the simplest eSIM setup
+      to check before your trip.
+    </p>
+
+    <form id="finder">
+      <label for="country">Destination</label>
+      <input
+        id="country"
+        name="country"
+        placeholder="Japan, Thailand, France..."
+        autocomplete="country-name"
+        required
+      >
+      <button type="submit">Find my eSIM setup</button>
+    </form>
+
+    
+    <p style="margin-top:18px">
+      <a href="countries/index.html">Browse eSIM guides by destination →</a>
+    </p>
+
+<section id="result">
+      <h2 id="headline"></h2>
+
+      <ol class="steps">
+        <li>Look for an eSIM that covers <strong id="destination"></strong>.</li>
+        <li>Choose enough data for your trip rather than automatically buying the biggest plan.</li>
+        <li>Check that your phone supports eSIM and is carrier-unlocked before paying.</li>
+        <li>Install the eSIM before departure when possible, then activate it according to the provider's instructions.</li>
+      </ol>
+
+      <a
+        id="offer"
+        class="cta"
+        href="https://agents.laguna.network/r/-AXlAoHE"
+        rel="nofollow sponsored"
+      >
+        See eSIM options on Klook →
+      </a>
+
+      <p class="small">
+        Affiliate disclosure: this page may earn a commission if you buy
+        through the link, at no additional cost to you.
+      </p>
+    </section>
+  </div>
+</main>
+
+<script>
+const form = document.getElementById("finder");
+const country = document.getElementById("country");
+const result = document.getElementById("result");
+const destination = document.getElementById("destination");
+const headline = document.getElementById("headline");
+
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  const value = country.value.trim();
+  if (!value) return;
+
+  destination.textContent = value;
+  headline.textContent = "eSIM checklist for " + value;
+  result.style.display = "block";
+
+  result.scrollIntoView({
+    behavior: "smooth",
+    block: "nearest"
+  });
+});
+</script>
+</body>
+</html>
