@@ -3,87 +3,270 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Best eSIM for Japan | Travel eSIM Checklist</title>
-  <meta name="description" content="Check what to look for when choosing an eSIM for Japan: coverage, data size, phone compatibility and activation.">
-  <link rel="canonical" href="https://awaw999iw-ai.github.io/esim-finder/countries/japan.html">
+
+  <title>Japan eSIM Data Calculator: How Many GB Do You Need?</title>
+
+  <meta name="description"
+        content="Estimate how much mobile data you may need for a trip to Japan based on trip length and how you use your phone.">
+
+  <link rel="canonical"
+        href="https://awaw999iw-ai.github.io/esim-finder/countries/japan.html">
+
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: system-ui, sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
       background: #f5f7fb;
       color: #17191f;
     }
+
     main {
-      max-width: 720px;
+      max-width: 760px;
       margin: 0 auto;
-      padding: 48px 20px;
+      padding: 36px 18px 60px;
     }
-    article {
+
+    section {
       background: #fff;
-      padding: 30px;
       border-radius: 22px;
-      box-shadow: 0 12px 45px rgba(0,0,0,.08);
+      padding: 28px;
+      margin-bottom: 18px;
+      box-shadow: 0 12px 40px rgba(0,0,0,.07);
     }
-    h1 { font-size: 42px; line-height: 1.05; }
-    p, li { font-size: 17px; line-height: 1.65; }
-    .cta {
+
+    h1 {
+      font-size: clamp(34px, 7vw, 54px);
+      line-height: 1.04;
+      margin-top: 0;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    p, li, label {
+      font-size: 17px;
+      line-height: 1.6;
+    }
+
+    .lead {
+      font-size: 19px;
+    }
+
+    label {
       display: block;
-      margin-top: 24px;
-      padding: 16px 18px;
+      font-weight: 700;
+      margin-top: 18px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 14px;
+      margin-top: 7px;
+      border: 1px solid #ccd2df;
+      border-radius: 12px;
+      font-size: 17px;
+      background: white;
+    }
+
+    button {
+      width: 100%;
+      border: 0;
       border-radius: 14px;
-      background: #17191f;
-      color: #fff;
+      padding: 15px 18px;
+      margin-top: 22px;
+      font-size: 18px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .result {
+      display: none;
+      margin-top: 22px;
+      padding: 18px;
+      border-radius: 15px;
+      background: #f0f3fa;
+    }
+
+    .gb {
+      font-size: 36px;
+      font-weight: 900;
+      margin: 3px 0;
+    }
+
+    .cta {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 14px 18px;
+      border-radius: 13px;
+      background: #17295c;
+      color: white;
       text-decoration: none;
       font-weight: 800;
-      text-align: center;
     }
+
     .small {
-      margin-top: 18px;
-      color: #737986;
-      font-size: 13px;
+      font-size: 14px;
+      color: #626874;
+    }
+
+    a {
+      color: #17295c;
+    }
+
+    ul {
+      padding-left: 22px;
     }
   </style>
-  <meta name="robots" content="noindex,follow">
 </head>
+
 <body>
 <main>
-<article>
-  <h1>eSIM for Japan</h1>
 
-  <p>
-    Travelling to Japan? An eSIM can be a simple way to get mobile data
-    without hunting for a physical SIM after arrival.
+<section>
+  <p><a href="index.html">← All destinations</a></p>
+
+  <h1>How much eSIM data do you need for Japan?</h1>
+
+  <p class="lead">
+    Use this quick calculator to estimate a sensible mobile-data range
+    for your Japan trip before choosing an eSIM plan.
   </p>
+</section>
 
-  <h2>What to check before buying</h2>
+<section>
+  <h2>Japan data calculator</h2>
+
+  <label for="days">Trip length</label>
+  <input id="days"
+         type="number"
+         min="1"
+         max="90"
+         value="7">
+
+  <label for="usage">How will you use your phone?</label>
+
+  <select id="usage">
+    <option value="0.35">
+      Light — maps, messaging, occasional browsing
+    </option>
+
+    <option value="0.8" selected>
+      Regular — maps, social media, photos, browsing
+    </option>
+
+    <option value="1.5">
+      Heavy — lots of social media and short video
+    </option>
+
+    <option value="3">
+      Very heavy — frequent video, hotspot or remote work
+    </option>
+  </select>
+
+  <button type="button" onclick="calculate()">
+    Estimate my data
+  </button>
+
+  <div id="result" class="result">
+    <div>Your estimated trip allowance:</div>
+    <div id="gb" class="gb"></div>
+
+    <p id="explain"></p>
+
+    <a
+      class="cta"
+      href="https://agents.laguna.network/r/-AXlAoHE"
+      rel="nofollow sponsored">
+      See Japan eSIM options on Klook →
+    </a>
+  </div>
+</section>
+
+<section>
+  <h2>What uses data while travelling?</h2>
 
   <ul>
-    <li>Your phone supports eSIM.</li>
-    <li>Your device is carrier-unlocked.</li>
-    <li>The plan explicitly includes coverage in Japan.</li>
-    <li>The data allowance matches the length of your trip.</li>
-    <li>You understand when the plan activates.</li>
+    <li>Maps and navigation throughout the day</li>
+    <li>Train and route searches</li>
+    <li>Translation and web searches</li>
+    <li>Messaging and photo sharing</li>
+    <li>Social media</li>
+    <li>Video and cloud backups</li>
+    <li>Hotspot use for another device</li>
   </ul>
 
-  <h2>How much data do you need?</h2>
+  <p>
+    Video, automatic photo backups and hotspot use can increase consumption
+    much faster than maps or messaging.
+  </p>
+</section>
+
+<section>
+  <h2>Before buying a Japan eSIM</h2>
+
+  <ul>
+    <li>Check that your phone supports eSIM.</li>
+    <li>Make sure the device is carrier-unlocked.</li>
+    <li>Check when the plan starts: installation or first network connection.</li>
+    <li>Check whether tethering or hotspot use is allowed if you need it.</li>
+    <li>Keep the installation details accessible before you travel.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Country plan or regional Asia plan?</h2>
 
   <p>
-    Light messaging and maps usually need much less data than video,
-    social media uploads or hotspot use. Choosing a smaller plan first can
-    be cheaper than automatically buying the largest package.
+    If Japan is your only destination, a Japan-specific plan may be simpler.
+    If your trip includes several countries, compare it with a regional plan
+    so you do not have to switch connectivity during the trip.
   </p>
+</section>
 
-  <a class="cta"
-     href="https://agents.laguna.network/r/-AXlAoHE"
-     rel="nofollow sponsored">
-     Check eSIM options for Japan →
-  </a>
+<section>
+  <p class="small">
+    The calculator is an estimate, not a measurement of actual future use.
+    Your consumption depends on apps, settings and network behaviour.
+  </p>
 
   <p class="small">
     Affiliate disclosure: this page may earn a commission if you purchase
-    through the link, at no additional cost to you.
+    through the Klook link, at no additional cost to you.
   </p>
-</article>
+</section>
+
 </main>
+
+<script>
+function calculate() {
+  const days = Math.max(
+    1,
+    Math.min(90, Number(document.getElementById("days").value) || 1)
+  );
+
+  const daily = Number(document.getElementById("usage").value);
+
+  const raw = days * daily;
+
+  const minimum = Math.max(1, Math.ceil(raw));
+  const comfortable = Math.max(minimum + 1, Math.ceil(raw * 1.35));
+
+  document.getElementById("gb").textContent =
+    minimum + "–" + comfortable + " GB";
+
+  document.getElementById("explain").textContent =
+    "For " + days +
+    " day" + (days === 1 ? "" : "s") +
+    ", this gives you a basic estimate plus some headroom.";
+
+  document.getElementById("result").style.display = "block";
+}
+</script>
+
 </body>
 </html>
